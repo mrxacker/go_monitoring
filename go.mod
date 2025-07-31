@@ -1,4 +1,4 @@
-module monitoring
+module github.com/mrxacker/go_monitoring
 
 go 1.24.2
 
