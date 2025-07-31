@@ -2,7 +2,8 @@ package zap
 
 import (
 	"fmt"
-	"monitoring/log"
+
+	"github.com/mrxacker/go_monitoring/log"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

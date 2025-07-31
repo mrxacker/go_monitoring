@@ -24,30 +24,30 @@ services:
       - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
     depends_on:
       - elasticsearch
-  jaeger:
-    image: jaegertracing/all-in-one:1.51
-    ports:
-      - "16686:16686"  # Jaeger UI
-      - "6831:6831/udp"  # Jaeger UDP Thrift
-      - "14268:14268"  # Collector HTTP
-    environment:
-      - COLLECTOR_OTLP_ENABLED=true
+  # jaeger:
+  #   image: jaegertracing/all-in-one:1.51
+  #   ports:
+  #     - "16686:16686"  # Jaeger UI
+  #     - "6831:6831/udp"  # Jaeger UDP Thrift
+  #     - "14268:14268"  # Collector HTTP
+  #   environment:
+  #     - COLLECTOR_OTLP_ENABLED=true
 
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-  grafana:
-    image: grafana/grafana:10.4.1
-    ports:
-      - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-    volumes:
-      - grafana-data:/var/lib/grafana
+  # prometheus:
+  #   image: prom/prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  # grafana:
+  #   image: grafana/grafana:10.4.1
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - GF_SECURITY_ADMIN_USER=admin
+  #     - GF_SECURITY_ADMIN_PASSWORD=admin
+  #   volumes:
+  #     - grafana-data:/var/lib/grafana
 
-volumes:
-  grafana-data:
+# volumes:
+#   grafana-data:
